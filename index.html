@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Impact - University Student Elevation System</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <h2>Campus Impact</h2>
+      </div>
+      <nav class="nav-menu">
+        <button class="nav-btn active" data-tab="dashboard">Dashboard Overview</button>
+        <button class="nav-btn" data-tab="accountability">Impact Accountability</button>
+        <button class="nav-btn" data-tab="burnout">Stress & Burnout SOS</button>
+        <button class="nav-btn" data-tab="peers">Peer Skill Matcher</button>
+      </nav>
+      <div class="user-card">
+        <div class="avatar">ST</div>
+        <div class="user-info">
+          <p class="user-name">University Student</p>
+          <p class="user-tier">Impact Tier: Level 4</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content">
+      <!-- Top Banner -->
+      <header class="top-header">
+        <div>
+          <h1>University Elevation Portal</h1>
+          <p class="subtitle">Real-time academic accountability, peer collaboration, and stress mitigation.</p>
+        </div>
+        <div class="header-badges">
+          <div class="badge pulse-glow">Live Accountability Active</div>
+        </div>
+      </header>
+
+      <!-- Dashboard View -->
+      <section id="dashboard" class="tab-content active">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Academic Momentum</h3>
+            <div class="stat-value" id="momentumVal">84%</div>
+            <div class="progress-bar"><div class="fill" style="width: 84%;"></div></div>
+          </div>
+          <div class="stat-card">
+            <h3>Total Impact Units</h3>
+            <div class="stat-value" id="impactPointsVal">145 pts</div>
+            <p class="stat-note">+25 points gained this week</p>
+          </div>
+          <div class="stat-card">
+            <h3>Mental Health Risk</h3>
+            <div class="stat-value status-good" id="burnoutStatusVal">Low Risk</div>
+            <p class="stat-note">Based on latest bi-weekly check-in</p>
+          </div>
+        </div>
+
+        <div class="widget-grid">
+          <div class="card">
+            <h2>Fast Action: Add Task</h2>
+            <form id="quickTaskForm">
+              <input type="text" id="taskTitle" placeholder="Task description (e.g., Finalize OS Lab)..." required>
+              <div class="form-row">
+                <select id="taskCategory">
+                  <option value="Academic">Academic</option>
+                  <option value="Project">Project</option>
+                  <option value="Personal">Personal</option>
+                </select>
+                <input type="number" id="impactScore" placeholder="Impact Score (1-100)" min="1" max="100" value="50">
+              </div>
+              <button type="submit" class="btn-primary">Add Impact Task</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Campus Crisis Hotline & SOS</h2>
+            <p>Direct assistance during heavy academic load or personal difficulty.</p>
+            <div class="sos-box">
+              <p><strong>Campus Counseling:</strong> 24/7 Available</p>
+              <p><strong>Emergency Contact:</strong> campus-support@university.edu</p>
+              <button class="btn-danger" id="triggerEmergencyBtn">Request Immediate Support Callback</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Accountability View -->
+      <section id="accountability" class="tab-content">
+        <div class="card">
+          <h2>High-Impact Task Matrix</h2>
+          <p>Prioritize tasks that provide maximum academic and career impact.</p>
+          <ul class="task-list" id="taskList">
+            <!-- Dynamic Injection -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- Burnout SOS View -->
+      <section id="burnout" class="tab-content">
+        <div class="card form-card">
+          <h2>Automated Burnout Index Diagnostic</h2>
+          <p>Evaluate your real-time risk level to prevent academic fatigue.</p>
+          <form id="stressForm">
+            <div class="field-group">
+              <label>Current Study/Workload Intensity (1 = Light, 10 = Overwhelming)</label>
+              <input type="range" id="loadScore" min="1" max="10" value="5">
+              <span class="range-val" id="loadVal">5</span>
+            </div>
+            <div class="field-group">
+              <label>Average Sleep Hours (Past 3 Days)</label>
+              <input type="number" id="sleepHours" min="0" max="14" value="6">
+            </div>
+            <div class="field-group">
+              <label>Upcoming Exams / Critical Deadlines within 7 days</label>
+              <input type="number" id="examProximity" min="0" max="10" value="2">
+            </div>
+            <button type="submit" class="btn-primary">Calculate Risk Score</button>
+          </form>
+
+          <div id="stressResult" class="result-box hidden">
+            <h3>Diagnostic Result: <span id="riskLevel">--</span></h3>
+            <p id="riskAdvice">--</p>
+            <div class="meter-bar"><div id="meterFill" class="meter-fill"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Peer Matcher View -->
+      <section id="peers" class="tab-content">
+        <div class="card">
+          <h2>University Peer Skill & Study Exchange</h2>
+          <p>Connect with peers who possess complementary skill sets to overcome academic roadblocks.</p>
+          <div class="peer-grid" id="peerGrid">
+            <!-- Dynamic Injection -->
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/widgets.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
